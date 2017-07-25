@@ -3,18 +3,18 @@
 	  include('banco-produto.php');
 	  $produtos = listaProdutos($conn);
 ?>
-	
-<?php 
+
+<?php
 	if(array_key_exists("removido", $_GET) && ($_GET['removido']==true)) :
 ?>
 	<p class="text-success">Produto removido</p>
-<?php 
+<?php
 	endif
  ?>
 
 <table class="table table-striped table-bordered">
 
-<?php	
+<?php
 	foreach ($produtos as $produto) : ?>
 		<tr>
 			<td><?= $produto['nome'] ?></td>
@@ -27,8 +27,9 @@
 					<button class="btn btn-danger">Remover</button>
 				</form>
 			</td>
-		</tr>	
-<?php 
+			<td><a class="btn btn-primary" href="produto-altera-formulario.php?id=<?=$produto['id']?>">alterar</a>
+		</tr>
+<?php
 	endforeach
 ?>
 </table>

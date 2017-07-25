@@ -2,7 +2,7 @@
 	  include("banco-categoria.php");
 	  include("conecta.php");
 	  $categorias = listaCategorias($conn);
- ?> 
+ ?>
 
 	<h1>Formulário de cadastro:</h1>
 	<form action="adiciona-produto.php" method="post">
@@ -19,20 +19,26 @@
 				<td>Descrição:</td>
 				<td><textarea name="descricao" class="form-control"/></textarea></td>
 			</tr>
+			<tr>
+				<td></td>
+				<td><input type="checkbox" name="usado" value="true"> Usado</td>
+			</tr>
 
 			<tr>
 				<td>Categoria:</td>
 				<td>
+					<select name="categoria_id" class="form-control">
 					<?php foreach($categorias as $categoria) : ?>
-					<input name="categoria_id" type="radio" value="<?=$categoria['id']?>"><?=$categoria['nome']?><br/>
+						<option value="<?=$categoria['id']?>"><?=$categoria['nome']?></option>
 					<?php endforeach ?>
+				</select>
 				</td>
 			</tr>
 
 			<tr>
 				<td></td>
 				<td><input type="submit" value="Cadastrar" class="btn btn-primary"/></td>
-			</tr>			
+			</tr>
 		</table>
 	</form>
 
