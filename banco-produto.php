@@ -1,9 +1,9 @@
-<?php
+<?php require_once("conecta.php");
 
 	function insereProduto($conn, $nome, $preco, $descricao, $categoria_id, $usado){
+		$nome = mysqli_real_escape_string($conn, $nome);
 		$query = "insert into produtos (nome, preco, descricao, categoria_id, usado) values ('{$nome}', {$preco}, '{$descricao}', {$categoria_id}, {$usado})";
 		$resultadoInsercao = mysqli_query($conn, $query);
-		echo $query;
 		return $resultadoInsercao;
 	}
 

@@ -1,19 +1,9 @@
-<?php include('cabecalho.php');
-	  include('conecta.php');
-	  include('banco-produto.php');
+<?php require_once('cabecalho.php');
+	  require_once('banco-produto.php');
+		require_once('logica-usuario.php');
 	  $produtos = listaProdutos($conn);
 ?>
-
-<?php
-	if(array_key_exists("removido", $_GET) && ($_GET['removido']==true)) :
-?>
-	<p class="text-success">Produto removido</p>
-<?php
-	endif
- ?>
-
 <table class="table table-striped table-bordered">
-
 <?php
 	foreach ($produtos as $produto) : ?>
 		<tr>
@@ -35,4 +25,4 @@
 </table>
 
 
-<?php include('rodape.php');
+<?php require_once('rodape.php');

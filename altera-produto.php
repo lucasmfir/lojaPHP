@@ -1,7 +1,6 @@
-<?php include("cabecalho.php");
-	  include("conecta.php");
-	  include("banco-produto.php");
-  $id           = $_POST["id"];   
+<?php require_once("cabecalho.php");
+	  require_once("banco-produto.php");
+  $id           = $_POST["id"];
   $nome  				= $_POST["nome"];
 	$preco			  = $_POST["preco"];
 	$descricao    = $_POST["descricao"];
@@ -20,4 +19,4 @@
 		<p class="text-danger">Produto <?= $nome;?> não alterado. <?= $erro?></p>
 <?php 	}
 	//mysqli_close($conn) -> fecha conexao, mas já eh fechada automaticamente
-	include("rodape.php");
+	require_once("rodape.php");
